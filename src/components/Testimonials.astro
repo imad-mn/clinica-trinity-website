@@ -1,0 +1,61 @@
+---
+const testimonials = [
+  {
+    name: "María Fernanda López",
+    initials: "ML",
+    rating: 5,
+    text: "La Dra. Francela es increíble. Me hice los alineadores y el resultado fue espectacular. La atención desde el primer día fue muy personalizada y profesional.",
+  },
+  {
+    name: "Carlos Ramírez",
+    initials: "CR",
+    rating: 5,
+    text: "Vine a hacerme un implante y quedé muy satisfecho. El proceso fue sin dolor y el equipo me explicó todo paso a paso. Totalmente recomendado.",
+  },
+  {
+    name: "Andrea Solís",
+    initials: "AS",
+    rating: 5,
+    text: "Me hice el blanqueamiento y quedé enamorada de mi sonrisa. El ambiente de la clínica es muy acogedor y la Dra. Monge transmite mucha confianza.",
+  },
+  {
+    name: "Roberto Jiménez",
+    initials: "RJ",
+    rating: 5,
+    text: "Traigo a toda mi familia aquí. Los niños no le tienen miedo al dentista gracias a la paciencia y calidez del equipo. Excelente servicio.",
+  },
+];
+---
+
+<section id="testimonios" class="py-20 bg-base-200">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl lg:text-4xl font-bold text-base-content mb-4">Lo que dicen nuestros pacientes</h2>
+      <p class="text-secondary text-lg max-w-xl mx-auto">
+        Miles de personas ya confían en Clínica Trinity. ¡Únete a nuestra familia!
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {testimonials.map((t) => (
+        <div class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow duration-300">
+          <div class="card-body gap-4">
+            <div class="flex text-accent gap-0.5">
+              {Array.from({ length: t.rating }).map(() => (
+                <span class="text-xl">★</span>
+              ))}
+            </div>
+            <p class="text-base-content/80 italic leading-relaxed">"{t.text}"</p>
+            <div class="flex items-center gap-3 mt-2">
+              <div class="avatar placeholder">
+                <div class="bg-primary text-primary-content rounded-full w-10">
+                  <span class="text-sm font-bold">{t.initials}</span>
+                </div>
+              </div>
+              <span class="font-semibold text-base-content">{t.name}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
