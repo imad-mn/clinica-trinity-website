@@ -1,0 +1,43 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<section id="inicio" class="hero min-h-[90vh] bg-base-100 py-16 lg:py-0">
+  <div class="hero-content flex-col lg:flex-row-reverse gap-12 max-w-6xl w-full mx-auto px-4">
+
+    <!-- Imagen placeholder -->
+    <div class="w-full lg:w-1/2 flex justify-center">
+      <div class="w-80 h-80 lg:w-96 lg:h-96 rounded-3xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center shadow-xl">
+        <Icon name="heroicons:face-smile" class="w-40 h-40 text-primary/40" />
+      </div>
+    </div>
+
+    <!-- Texto y CTAs -->
+    <div class="w-full lg:w-1/2 text-center lg:text-left">
+      <p class="text-accent font-semibold uppercase tracking-widest text-sm mb-3">
+        Clínica Trinity · Tres Ríos, Costa Rica
+      </p>
+      <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold text-base-content leading-tight mb-6">
+        Sonreír con <span class="text-primary">confianza</span> y sin pena
+      </h1>
+      <p class="text-lg text-secondary mb-8 max-w-lg mx-auto lg:mx-0">
+        En Clínica Trinity te ofrecemos atención dental especializada con tecnología moderna y el calor humano que mereces. Ubicados en Tres Ríos, Costa Rica.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+        <a
+          href="https://wa.me/50683561395?text=Hola,%20me%20gustaría%20agendar%20una%20cita"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary btn-lg gap-2"
+        >
+          <Icon name="heroicons:chat-bubble-left-ellipsis" class="w-5 h-5" />
+          Agendar Cita por WhatsApp
+        </a>
+        <a href="#servicios" class="btn btn-outline btn-lg">
+          Ver Servicios
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
