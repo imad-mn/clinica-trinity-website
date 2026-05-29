@@ -1,0 +1,65 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const services = [
+  {
+    icon: "heroicons:sparkles",
+    title: "Blanqueamientos",
+    description: "Recupera el brillo natural de tu sonrisa con nuestros tratamientos de blanqueamiento dental profesional.",
+  },
+  {
+    icon: "heroicons:adjustments-horizontal",
+    title: "Ortodoncia Invisible",
+    description: "Alineadores transparentes para corregir tu mordida de forma discreta y cómoda.",
+  },
+  {
+    icon: "heroicons:wrench-screwdriver",
+    title: "Restauraciones",
+    description: "Reparamos y restauramos dientes dañados para devolverte una sonrisa funcional y estética.",
+  },
+  {
+    icon: "heroicons:bolt",
+    title: "Implantes Dentales",
+    description: "Soluciones permanentes para reemplazar dientes perdidos con resultados naturales.",
+  },
+  {
+    icon: "heroicons:trophy",
+    title: "Coronas y Puentes",
+    description: "Protegemos y restauramos piezas dentales dañadas con materiales de alta calidad.",
+  },
+  {
+    icon: "heroicons:scissors",
+    title: "Cirugías",
+    description: "Procedimientos quirúrgicos dentales realizados con precisión, seguridad y cuidado.",
+  },
+  {
+    icon: "heroicons:face-smile",
+    title: "Ortopedia Funcional",
+    description: "Tratamiento con trainers Myobrace para guiar el desarrollo dental desde temprana edad.",
+  },
+];
+---
+
+<section id="servicios" class="py-20 bg-base-100">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl lg:text-4xl font-bold text-base-content mb-4">Nuestros Servicios</h2>
+      <p class="text-secondary text-lg max-w-xl mx-auto">
+        Ofrecemos una amplia variedad de tratamientos dentales para toda la familia.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {services.map((service) => (
+        <div class="card card-compact bg-base-100 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+          <div class="card-body">
+            <div class="flex items-center gap-3 mb-2">
+              <Icon name={service.icon} class="w-8 h-8 text-primary flex-shrink-0" />
+              <h3 class="card-title text-lg">{service.title}</h3>
+            </div>
+            <p class="text-secondary text-sm">{service.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
