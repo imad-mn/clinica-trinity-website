@@ -2,73 +2,156 @@
 import { Icon } from 'astro-icon/components';
 ---
 
-<!-- Mobile drawer -->
 <div class="drawer">
   <input id="nav-drawer" type="checkbox" class="drawer-toggle" />
 
   <div class="drawer-content flex flex-col">
     <!-- Navbar -->
-    <nav class="navbar bg-base-100 shadow-sm sticky top-0 z-40">
-      <div class="navbar-start">
-        <!-- Hamburger mobile -->
-        <label for="nav-drawer" class="btn btn-ghost lg:hidden" aria-label="Abrir menú">
-          <Icon name="heroicons:bars-3" class="w-6 h-6" />
-        </label>
-        <!-- Logo -->
-        <a href="/" class="flex items-center gap-2 ml-2">
-          <img
-            src="/Clinica Trinity.png"
-            alt="Clínica Trinity"
-            class="h-12 w-auto"
-          />
-        </a>
-      </div>
+    <nav
+      id="main-nav"
+      class="fixed top-0 left-0 right-0 z-40 transition-all duration-300"
+    >
+      <div class="nav-inner mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-18">
 
-      <!-- Desktop links -->
-      <div class="navbar-center hidden lg:flex">
-        <ul class="menu menu-horizontal px-1 gap-1">
-          <li><a href="#inicio" class="font-medium hover:text-primary transition-colors">Inicio</a></li>
-          <li><a href="#servicios" class="font-medium hover:text-primary transition-colors">Servicios</a></li>
-          <li><a href="#nosotros" class="font-medium hover:text-primary transition-colors">Nosotros</a></li>
-          <li><a href="#contacto" class="font-medium hover:text-primary transition-colors">Contacto</a></li>
-        </ul>
-      </div>
+          <!-- Hamburger (mobile) -->
+          <div class="flex items-center">
+            <label
+              for="nav-drawer"
+              class="btn btn-ghost btn-sm lg:hidden text-white hover:bg-white/20"
+              aria-label="Abrir menú"
+            >
+              <Icon name="heroicons:bars-3" class="w-6 h-6" />
+            </label>
+          </div>
 
-      <div class="navbar-end">
-        <a
-          href="https://wa.me/50683561395?text=Hola,%20me%20gustaría%20agendar%20una%20cita"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-primary hidden sm:flex gap-2"
-        >
-          <Icon name="heroicons:calendar-days" class="w-5 h-5" />
-          Agendar Cita
-        </a>
+          <!-- Nombre centrado en mobile -->
+          <span class="lg:hidden absolute left-1/2 -translate-x-1/2 text-white font-bold text-xl tracking-wide pointer-events-none">
+            Clínica Trinity
+          </span>
+
+          <!-- Desktop links -->
+          <ul class="hidden lg:flex items-center gap-1">
+            {[
+              { href: '#inicio',    label: 'Inicio' },
+              { href: '#servicios', label: 'Servicios' },
+              { href: '#nosotros',  label: 'Nosotros' },
+              { href: '#contacto',  label: 'Contacto' },
+            ].map(({ href, label }) => (
+              <li>
+                <a
+                  href={href}
+                  class="nav-link relative px-4 py-2 text-base font-semibold text-white/90 hover:text-white rounded-lg transition-all duration-200 hover:bg-white/15 group"
+                >
+                  {label}
+                  <span class="absolute bottom-1 left-4 right-4 h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-200 rounded-full" />
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <!-- CTA -->
+          <div class="flex items-center gap-3">
+            <a
+              href="tel:+50683561395"
+              class="hidden md:flex items-center gap-1.5 text-white/80 hover:text-white text-base font-medium transition-colors"
+            >
+              <Icon name="heroicons:phone" class="w-4 h-4" />
+              <span class="hidden xl:inline">8356-1395</span>
+            </a>
+            <a
+              href="https://wa.me/50683561395?text=Hola,%20me%20gustaría%20agendar%20una%20cita"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hidden sm:flex items-center gap-2 px-5 py-2.5 rounded-xl bg-accent text-white text-base font-bold shadow-lg shadow-accent/30 hover:brightness-110 hover:-translate-y-0.5 transition-all duration-200"
+            >
+              <Icon name="heroicons:calendar-days" class="w-4 h-4" />
+              Agendar Cita
+            </a>
+          </div>
+
+        </div>
       </div>
     </nav>
+
+    <!-- Spacer so content doesn't hide under fixed nav -->
+    <div class="h-[72px]"></div>
   </div>
 
   <!-- Mobile drawer sidebar -->
   <div class="drawer-side z-50">
     <label for="nav-drawer" aria-label="Cerrar menú" class="drawer-overlay"></label>
-    <ul class="menu bg-base-100 min-h-full w-64 p-4 gap-2">
-      <li class="mb-4">
-        <img src="/Clinica Trinity.png" alt="Clínica Trinity" class="h-16 w-auto" />
-      </li>
-      <li><a href="#inicio" class="font-medium text-base">Inicio</a></li>
-      <li><a href="#servicios" class="font-medium text-base">Servicios</a></li>
-      <li><a href="#nosotros" class="font-medium text-base">Nosotros</a></li>
-      <li><a href="#contacto" class="font-medium text-base">Contacto</a></li>
-      <li class="mt-4">
+    <div class="bg-base-100 min-h-full w-72 shadow-2xl flex flex-col">
+
+      <!-- Sidebar header -->
+      <div class="bg-primary px-6 py-6">
+        <p class="text-white font-bold text-lg leading-tight">Clínica Trinity</p>
+        <p class="text-white/70 text-sm font-medium">Especialidades Dentales</p>
+      </div>
+
+      <!-- Sidebar links -->
+      <ul class="flex flex-col p-4 gap-1 flex-1">
+        {[
+          { href: '#inicio',    label: 'Inicio',    icon: 'heroicons:home' },
+          { href: '#servicios', label: 'Servicios', icon: 'heroicons:sparkles' },
+          { href: '#nosotros',  label: 'Nosotros',  icon: 'heroicons:user-group' },
+          { href: '#contacto',  label: 'Contacto',  icon: 'heroicons:envelope' },
+        ].map(({ href, label, icon }) => (
+          <li>
+            <a
+              href={href}
+              class="flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-base-content hover:bg-primary/10 hover:text-primary transition-all duration-150"
+            >
+              <Icon name={icon} class="w-5 h-5 text-primary" />
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <!-- Sidebar footer CTA -->
+      <div class="p-4 border-t border-base-300">
         <a
           href="https://wa.me/50683561395?text=Hola,%20me%20gustaría%20agendar%20una%20cita"
           target="_blank"
           rel="noopener noreferrer"
-          class="btn btn-primary w-full"
+          class="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-primary text-white font-bold text-sm shadow-md hover:brightness-110 transition-all"
         >
+          <Icon name="heroicons:calendar-days" class="w-5 h-5" />
           Agendar Cita
         </a>
-      </li>
-    </ul>
+        <a
+          href="tel:+50683561395"
+          class="flex items-center justify-center gap-2 mt-2 w-full py-2.5 rounded-xl border border-base-300 text-base-content font-medium text-sm hover:bg-base-200 transition-all"
+        >
+          <Icon name="heroicons:phone" class="w-4 h-4 text-primary" />
+          8356-1395
+        </a>
+      </div>
+
+    </div>
   </div>
 </div>
+
+<style>
+  /* Gradient navbar background */
+  #main-nav {
+    background: linear-gradient(135deg, #AD2380 0%, #8a1a66 60%, #6d1452 100%);
+  }
+
+  /* Frosted glass + shadow after scroll */
+  #main-nav.scrolled {
+    background: linear-gradient(135deg, rgba(173,35,128,0.97) 0%, rgba(138,26,102,0.97) 60%, rgba(109,20,82,0.97) 100%);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 24px rgba(173,35,128,0.25);
+  }
+
+  .h-18 { height: 4.5rem; }
+</style>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav?.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+</script>
