@@ -1,0 +1,38 @@
+---
+const stats = [
+  {
+    value: "+10",
+    label: "Años de experiencia",
+    desc: "Más de una década cuidando sonrisas",
+  },
+  {
+    value: "5,000+",
+    label: "Sonrisas creadas",
+    desc: "Pacientes satisfechos en Tres Ríos",
+  },
+  {
+    value: "7",
+    label: "Especialidades",
+    desc: "Tratamientos para toda la familia",
+  },
+  {
+    value: "100%",
+    label: "Compromiso",
+    desc: "Con tu comodidad y bienestar",
+  },
+];
+---
+
+<section class="py-16 bg-primary">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="stats stats-vertical lg:stats-horizontal shadow w-full bg-primary text-primary-content">
+      {stats.map((stat) => (
+        <div class="stat text-center">
+          <div class="stat-value text-4xl font-bold">{stat.value}</div>
+          <div class="stat-title text-primary-content/80 text-base font-semibold mt-1">{stat.label}</div>
+          <div class="stat-desc text-primary-content/60">{stat.desc}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
