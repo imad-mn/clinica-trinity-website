@@ -1,0 +1,81 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<footer class="footer footer-center bg-neutral text-neutral-content p-0">
+  <div class="w-full px-8 py-10">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+
+      <!-- Col 1: Info clínica -->
+      <div>
+        <h3 class="footer-title opacity-100 text-lg font-bold mb-3">Clínica Trinity</h3>
+        <p class="text-neutral-content/80 text-sm leading-relaxed">
+          Especialidades Dentales
+        </p>
+        <p class="text-neutral-content/70 text-sm mt-2">
+          800 metros este de la iglesia católica,<br />
+          Tres Ríos, Costa Rica
+        </p>
+        <a
+          href="tel:+50683561395"
+          class="text-neutral-content/70 text-sm mt-1 inline-block hover:text-accent transition-colors"
+        >
+          +506 8356-1395
+        </a>
+      </div>
+
+      <!-- Col 2: Navegación -->
+      <div>
+        <h3 class="footer-title opacity-100 text-lg font-bold mb-3">Navegación</h3>
+        <nav class="flex flex-col gap-2">
+          <a href="#inicio" class="text-neutral-content/70 text-sm hover:text-accent transition-colors">Inicio</a>
+          <a href="#servicios" class="text-neutral-content/70 text-sm hover:text-accent transition-colors">Servicios</a>
+          <a href="#nosotros" class="text-neutral-content/70 text-sm hover:text-accent transition-colors">Nosotros</a>
+          <a href="#testimonios" class="text-neutral-content/70 text-sm hover:text-accent transition-colors">Contacto</a>
+        </nav>
+      </div>
+
+      <!-- Col 3: Redes sociales -->
+      <div>
+        <h3 class="footer-title opacity-100 text-lg font-bold mb-3">Síguenos</h3>
+        <div class="flex flex-col gap-3">
+          <a
+            href="https://www.facebook.com/DraFranselaMonge"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 text-neutral-content/70 text-sm hover:text-accent transition-colors"
+          >
+            <Icon name="simple-icons:facebook" class="w-5 h-5" />
+            Facebook
+          </a>
+          <a
+            href="https://www.instagram.com/clinicadental_trinity/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 text-neutral-content/70 text-sm hover:text-accent transition-colors"
+          >
+            <Icon name="simple-icons:instagram" class="w-5 h-5" />
+            Instagram
+          </a>
+          <a
+            href="https://wa.me/50683561395?text=Hola,%20me%20gustaría%20agendar%20una%20cita"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 text-neutral-content/70 text-sm hover:text-accent transition-colors"
+          >
+            <Icon name="simple-icons:whatsapp" class="w-5 h-5" />
+            WhatsApp
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div class="w-full bg-neutral/80 py-4 text-center border-t border-neutral-content/10">
+    <p class="text-neutral-content/50 text-xs">
+      © 2025 Clínica Trinity Especialidades Dentales. Todos los derechos reservados.
+    </p>
+  </div>
+</footer>
