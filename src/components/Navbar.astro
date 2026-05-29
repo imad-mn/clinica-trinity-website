@@ -1,0 +1,74 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<!-- Mobile drawer -->
+<div class="drawer">
+  <input id="nav-drawer" type="checkbox" class="drawer-toggle" />
+
+  <div class="drawer-content flex flex-col">
+    <!-- Navbar -->
+    <nav class="navbar bg-base-100 shadow-sm sticky top-0 z-40">
+      <div class="navbar-start">
+        <!-- Hamburger mobile -->
+        <label for="nav-drawer" class="btn btn-ghost lg:hidden" aria-label="Abrir menú">
+          <Icon name="heroicons:bars-3" class="w-6 h-6" />
+        </label>
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-2 ml-2">
+          <img
+            src="/Clinica Trinity.png"
+            alt="Clínica Trinity"
+            class="h-12 w-auto"
+          />
+        </a>
+      </div>
+
+      <!-- Desktop links -->
+      <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1 gap-1">
+          <li><a href="#inicio" class="font-medium hover:text-primary transition-colors">Inicio</a></li>
+          <li><a href="#servicios" class="font-medium hover:text-primary transition-colors">Servicios</a></li>
+          <li><a href="#nosotros" class="font-medium hover:text-primary transition-colors">Nosotros</a></li>
+          <li><a href="#contacto" class="font-medium hover:text-primary transition-colors">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="navbar-end">
+        <a
+          href="https://wa.me/50683561395?text=Hola,%20me%20gustaría%20agendar%20una%20cita"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary hidden sm:flex gap-2"
+        >
+          <Icon name="heroicons:calendar-days" class="w-5 h-5" />
+          Agendar Cita
+        </a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Mobile drawer sidebar -->
+  <div class="drawer-side z-50">
+    <label for="nav-drawer" aria-label="Cerrar menú" class="drawer-overlay"></label>
+    <ul class="menu bg-base-100 min-h-full w-64 p-4 gap-2">
+      <li class="mb-4">
+        <img src="/Clinica Trinity.png" alt="Clínica Trinity" class="h-16 w-auto" />
+      </li>
+      <li><a href="#inicio" class="font-medium text-base">Inicio</a></li>
+      <li><a href="#servicios" class="font-medium text-base">Servicios</a></li>
+      <li><a href="#nosotros" class="font-medium text-base">Nosotros</a></li>
+      <li><a href="#contacto" class="font-medium text-base">Contacto</a></li>
+      <li class="mt-4">
+        <a
+          href="https://wa.me/50683561395?text=Hola,%20me%20gustaría%20agendar%20una%20cita"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary w-full"
+        >
+          Agendar Cita
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
