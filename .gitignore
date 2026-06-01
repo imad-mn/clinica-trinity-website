@@ -19,3 +19,4 @@ pnpm-debug.log*
 .env.production
 
 .codegraph/
+.playwright-mcp/

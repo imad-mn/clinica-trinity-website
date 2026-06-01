@@ -6,16 +6,22 @@ const items = [
     icon: "heroicons:cpu-chip",
     title: "Tecnología Avanzada",
     description: "Equipos de última generación para diagnósticos precisos y tratamientos más cómodos.",
+    iconColor: "text-primary",
+    iconBg: "bg-primary/10",
   },
   {
     icon: "heroicons:user-circle",
     title: "Atención Personalizada",
     description: "Cada paciente es único. Te escuchamos y diseñamos el plan ideal para tu sonrisa.",
+    iconColor: "text-primary",
+    iconBg: "bg-primary/10",
   },
   {
     icon: "heroicons:heart",
     title: "Trabajamos con Amor",
     description: "La Dra. Francela Monge y su equipo te cuidan con dedicación y calidez en cada visita.",
+    iconColor: "text-accent",
+    iconBg: "bg-accent/10",
   },
 ];
 ---
@@ -23,14 +29,16 @@ const items = [
 <section id="nosotros" class="py-20 bg-base-200">
   <div class="max-w-6xl mx-auto px-4">
     <div class="text-center mb-12">
-      <h2 class="text-3xl lg:text-4xl font-bold text-base-content mb-4">¿Por qué elegirnos?</h2>
+      <h2 class="font-serif text-3xl lg:text-4xl text-base-content mb-4">¿Por qué elegirnos?</h2>
       <p class="text-secondary text-lg max-w-xl mx-auto">Nuestro compromiso va más allá de la atención dental.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       {items.map((item) => (
         <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
           <div class="card-body items-center text-center">
-            <Icon name={item.icon} class="w-14 h-14 text-primary mb-2" />
+            <div class={`w-16 h-16 rounded-2xl ${item.iconBg} flex items-center justify-center mb-2`}>
+              <Icon name={item.icon} class={`w-8 h-8 ${item.iconColor}`} />
+            </div>
             <h3 class="card-title text-xl">{item.title}</h3>
             <p class="text-secondary">{item.description}</p>
           </div>

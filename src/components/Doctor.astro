@@ -1,0 +1,72 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const stats = [
+  { value: "10+", label: "Años de experiencia" },
+  { value: "3,000+", label: "Pacientes atendidos" },
+  { value: "6", label: "Especialidades" },
+];
+
+const credentials = [
+  "Licenciatura en Odontología — Universidad de Costa Rica",
+  "Especialidad en Ortodoncia e Implantología",
+  "Miembro del Colegio de Cirujanos Dentistas de Costa Rica",
+  "Certificación en Odontología Estética Digital",
+];
+---
+
+<section id="doctora" class="py-20 bg-base-100">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex flex-col lg:flex-row items-center gap-12">
+
+      <!-- Foto / avatar placeholder -->
+      <div class="flex-shrink-0 flex flex-col items-center gap-4">
+        <div class="w-64 h-64 lg:w-80 lg:h-80 rounded-3xl bg-gradient-to-br from-primary/10 to-accent/10 border-2 border-primary/20 flex items-center justify-center shadow-lg">
+          <Icon name="heroicons:user-circle" class="w-40 h-40 text-primary/30" />
+        </div>
+        <!-- Stats row — azul para datos clínicos objetivos -->
+        <div class="flex gap-6 mt-2">
+          {stats.map((s) => (
+            <div class="text-center">
+              <p class="font-serif text-3xl font-bold text-primary leading-none">{s.value}</p>
+              <p class="text-xs text-secondary mt-1 leading-tight max-w-[72px]">{s.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Bio & credenciales -->
+      <div class="flex-1">
+        <p class="text-accent font-semibold tracking-widest uppercase text-sm mb-2">Conozca a su dentista</p>
+        <h2 class="font-serif text-4xl lg:text-5xl text-base-content mb-4 leading-tight">
+          Dra. Francela <span class="text-accent">Monge</span>
+        </h2>
+        <p class="text-secondary text-lg leading-relaxed mb-8 max-w-2xl">
+          Con más de una década dedicada a transformar sonrisas, la Dra. Monge combina tecnología de punta con
+          un trato cálido y personalizado. Su filosofía: que cada visita al dentista sea una experiencia positiva,
+          sin ansiedad y con resultados que duran toda la vida.
+        </p>
+
+        <!-- Lista de credenciales — fondo azul suave + icono azul -->
+        <ul class="space-y-2 mb-8">
+          {credentials.map((c) => (
+            <li class="flex items-start gap-3 bg-base-200 rounded-xl px-4 py-3">
+              <Icon name="heroicons:check-badge" class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+              <span class="text-base-content text-sm font-medium">{c}</span>
+            </li>
+          ))}
+        </ul>
+
+        <a
+          href="https://wa.me/50683561395?text=Hola%2C%20quisiera%20agendar%20una%20cita%20con%20la%20Dra.%20Monge"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary btn-lg gap-2"
+        >
+          <Icon name="heroicons:calendar-days" class="w-5 h-5" />
+          Agendar cita con la Dra. Monge
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

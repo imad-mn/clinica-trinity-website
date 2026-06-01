@@ -1,19 +1,28 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+@layer base {
+  body {
+    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  }
+  .font-serif {
+    font-family: "DM Serif Display", ui-serif, Georgia, serif;
+  }
+}
+
 [data-theme="trinity"] {
-  --color-primary: #AD2380;
+  --color-primary: #2E9DD4;
   --color-primary-content: #ffffff;
-  --color-secondary: #808285;
+  --color-secondary: #6b7a8d;
   --color-secondary-content: #ffffff;
-  --color-accent: #FBAC37;
+  --color-accent: #2DB899;
   --color-accent-content: #ffffff;
-  --color-neutral: #2a2a2a;
+  --color-neutral: #1E2D3D;
   --color-neutral-content: #ffffff;
   --color-base-100: #ffffff;
-  --color-base-200: #f8f8f8;
-  --color-base-300: #eeeeee;
-  --color-base-content: #1a1a1a;
+  --color-base-200: #f4f8fb;
+  --color-base-300: #e8f0f7;
+  --color-base-content: #1a2635;
   --rounded-box: 0.75rem;
   --rounded-btn: 0.5rem;
 }

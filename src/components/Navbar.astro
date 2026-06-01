@@ -84,7 +84,7 @@ import { Icon } from 'astro-icon/components';
     <div class="bg-base-100 min-h-full w-72 shadow-2xl flex flex-col">
 
       <!-- Sidebar header -->
-      <div class="bg-primary px-6 py-6">
+      <div class="bg-neutral px-6 py-6">
         <p class="text-white font-bold text-lg leading-tight">Clínica Trinity</p>
         <p class="text-white/70 text-sm font-medium">Especialidades Dentales</p>
       </div>
@@ -136,14 +136,14 @@ import { Icon } from 'astro-icon/components';
 <style>
   /* Gradient navbar background */
   #main-nav {
-    background: linear-gradient(135deg, #AD2380 0%, #8a1a66 60%, #6d1452 100%);
+    background: linear-gradient(135deg, var(--color-neutral) 0%, #1a6090 60%, var(--color-primary) 100%);
   }
 
   /* Frosted glass + shadow after scroll */
   #main-nav.scrolled {
-    background: linear-gradient(135deg, rgba(173,35,128,0.97) 0%, rgba(138,26,102,0.97) 60%, rgba(109,20,82,0.97) 100%);
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-neutral) 97%, transparent) 0%, rgba(26,96,144,0.97) 60%, color-mix(in srgb, var(--color-primary) 97%, transparent) 100%);
     backdrop-filter: blur(12px);
-    box-shadow: 0 4px 24px rgba(173,35,128,0.25);
+    box-shadow: 0 4px 24px color-mix(in srgb, var(--color-primary) 25%, transparent);
   }
 
   .h-18 { height: 4.5rem; }
