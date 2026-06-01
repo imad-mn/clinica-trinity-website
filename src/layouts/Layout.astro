@@ -2,12 +2,60 @@
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
 }
 
 const {
   title = "Clínica Trinity Especialidades Dentales",
   description = "Atención dental especializada con tecnología moderna y calor humano. Ubicados en Tres Ríos, Costa Rica.",
+  image = "/Clinica_Trinity.webp",
 } = Astro.props;
+
+const siteUrl = "https://clinicatrinity.com";
+const canonicalURL = new URL(Astro.url.pathname, siteUrl).toString();
+const imageURL = new URL(image, siteUrl).toString();
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": ["Dentist", "LocalBusiness"],
+  name: "Clínica Trinity Especialidades Dentales",
+  description,
+  url: siteUrl,
+  telephone: "+50683561395",
+  image: imageURL,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Tres Ríos",
+    addressRegion: "Cartago",
+    addressCountry: "CR",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 9.907878,
+    longitude: -83.9779439,
+  },
+  hasMap: "https://maps.app.goo.gl/4cJKaAm9cc6tPBJ17",
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
+      closes: "18:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Saturday"],
+      opens: "08:00",
+      closes: "13:00",
+    },
+  ],
+  sameAs: [
+    "https://wa.me/50683561395",
+    "https://maps.app.goo.gl/4cJKaAm9cc6tPBJ17",
+  ],
+  priceRange: "$$",
+  medicalSpecialty: "Dentistry",
+};
 ---
 
 <!doctype html>
@@ -15,13 +63,39 @@ const {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Primary meta -->
+    <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="icon" type="image/webp" href="/Clinica_Trinity.webp" />
+    <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:image:alt" content="Clínica Trinity Especialidades Dentales" />
+    <meta property="og:locale" content="es_CR" />
+    <meta property="og:site_name" content="Clínica Trinity" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageURL} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="/Clinica_Trinity.webp" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <title>{title}</title>
+
+    <!-- Structured data -->
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body class="bg-base-100 text-base-content">
     <slot />

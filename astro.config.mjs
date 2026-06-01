@@ -2,17 +2,19 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import icon from 'astro-icon';
+import sitemap from '@astrojs/sitemap';
 
 import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://clinicatrinity.com',
   vite: {
     plugins: [tailwindcss()],
     optimizeDeps: {
-      include: ['astro-icon', 'debug'] 
+      include: ['astro-icon', 'debug']
     }
   },
-  integrations: [icon()],
+  integrations: [icon(), sitemap()],
   adapter: cloudflare()
 });
