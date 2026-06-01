@@ -1,4 +1,6 @@
 ---
+import { Icon } from "astro-icon/components";
+
 const testimonials = [
   {
     name: "María Fernanda López",
@@ -27,11 +29,11 @@ const testimonials = [
 ];
 ---
 
-<section id="testimonios" class="py-20 bg-base-200">
+<section id="testimonios" class="py-20 bg-base-100">
   <div class="max-w-6xl mx-auto px-4">
     <div class="text-center mb-12">
       <h2 class="font-serif text-3xl lg:text-4xl text-base-content mb-4">Lo que dicen nuestros pacientes</h2>
-      <p class="text-secondary text-lg max-w-xl mx-auto">
+      <p class="text-secondary text-lg max-w-2xl mx-auto">
         Miles de personas ya confían en Clínica Trinity. ¡Únete a nuestra familia!
       </p>
     </div>
@@ -41,7 +43,7 @@ const testimonials = [
           <div class="card-body gap-4">
             <div class="flex text-accent gap-0.5">
               {Array.from({ length: t.rating }).map(() => (
-                <span class="text-xl">★</span>
+                <Icon name="heroicons:star-solid" class="w-5 h-5" />
               ))}
             </div>
             <p class="text-base-content/80 italic leading-relaxed">"{t.text}"</p>
