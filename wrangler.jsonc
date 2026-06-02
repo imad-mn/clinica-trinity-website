@@ -4,8 +4,7 @@
 	"name": "clinica-trinity-website",
 	"main": "@astrojs/cloudflare/entrypoints/server",
 	"assets": {
-		"directory": "./dist",
-		"binding": "ASSETS"
+		"directory": "./dist"
 	},
 	"observability": {
 		"enabled": true
